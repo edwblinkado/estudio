@@ -1,0 +1,45 @@
+db.createUser(
+  {
+    user: "edwblinkado",
+    pwd: "XXX",
+    roles: [ "root" ]
+  }
+)
+
+------------------------------------
+
+db.createUser(
+  {
+    user: "express",
+    pwd: "XXX",
+    roles: [ "dbOwner" ]
+  }
+)
+
+------------------------------------
+
+db.inventory.insertOne(
+   { "item" : "canvas",
+     "qty" : 100,
+     "tags" : ["cotton"],
+     "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" }
+   }
+)
+
+------------------------------------
+
+mongoimport --db exampledb --collection users \
+          --authenticationDatabase admin --username USER --password XXX \
+          --drop --file ~/Downloads/users.json
+
+------------------------------------
+
+
+tasklist /FI "IMAGENAME eq mongod.exe"
+
+"C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --auth
+
+
+mongo mongodb://USER:XXX@localhost:27017/admin
+
+mongodb+srv://USER:XXX@edwblinkado-ps6ps.mongodb.net/admin
